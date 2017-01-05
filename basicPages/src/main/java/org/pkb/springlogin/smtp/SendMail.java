@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class SendMail {
 	final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
 	public void sendVerificationMail(Integer id, String email, String randomString) {
-		final String from="vihangtp@gmail.com";
+		final String from="";
 		//String host="localhost";
 		Properties props=System.getProperties();
 		 props.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -32,7 +32,7 @@ public class SendMail {
 	     
 		Session session=Session.getDefaultInstance(props, new Authenticator(){
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, "Batman-Dark2");
+                return new PasswordAuthentication(from, "");
              }});
 		MimeMessage mimeMessage=new MimeMessage(session);
 		try {
