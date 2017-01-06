@@ -4,14 +4,12 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.StringReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
 import javax.net.ssl.HttpsURLConnection;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Verify {
 	public static final String url = "https://www.google.com/recaptcha/api/siteverify";
@@ -59,11 +57,12 @@ public class Verify {
 		System.out.println(response.toString());
 		
 		//parse JSON response and return 'success' value
-		JsonReader jsonReader = Json.createReader(new StringReader(response.toString()));
-		JsonObject jsonObject = jsonReader.readObject();
-		jsonReader.close();
+		ObjectMapper mapper=new ObjectMapper();
 		
-		return jsonObject.getBoolean("success");
+	String jsonValue=	mapper.writeValueAsString(response.toString());
+		
+		
+		return "success".equalsIgnoreCase(jsonValue);
 		} catch (MalformedURLException e) {
 			
 			e.printStackTrace();
