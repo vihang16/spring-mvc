@@ -12,9 +12,9 @@ private String type;
 private String email;
 private String dob;
 private Boolean enabled;
-//private AddressVO address;
+private AddressVO address;
 
-private String line1;
+/*private String line1;
 private String line2;
 private Integer zipCode;
 private String state;
@@ -50,15 +50,15 @@ public String getCountry() {
 }
 public void setCountry(String country) {
 	this.country = country;
-}
+}*/
 
 
-/*public AddressVO getAddress() {
+public AddressVO getAddress() {
 	return address;
 }
 public void setAddress(AddressVO address) {
 	this.address = address;
-}*/
+}
 public String getDob() {
 	return dob;
 }
